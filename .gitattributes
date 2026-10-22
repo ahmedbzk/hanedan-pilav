@@ -1,0 +1,8 @@
+# Satır sonları her platformda LF kalır (.sh ve .htaccess CRLF ile bozulur).
+* text=auto eol=lf
+*.ps1 text eol=crlf
+*.png binary
+*.jpg binary
+*.webp binary
+*.ico binary
+*.woff2 binary

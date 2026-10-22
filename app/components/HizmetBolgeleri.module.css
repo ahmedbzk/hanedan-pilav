@@ -1,0 +1,6 @@
+.bolgeler{margin-top:clamp(20px,2.4vw,32px)}
+.bolgeler :is(h2,h3){font-size:clamp(22px,2.2vw,30px)}
+.merkezNot{margin-top:10px;font-size:16px;color:var(--ikincil)}
+.merkezNot strong{color:var(--kara)}
+.etiketler{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;padding:0;list-style:none}
+.etiketler li{border:2px solid var(--kara);border-radius:999px;background:var(--emaye);padding:7px 16px;font-weight:700;font-size:15px;color:var(--kara)}

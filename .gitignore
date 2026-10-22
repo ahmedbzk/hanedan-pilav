@@ -1,0 +1,38 @@
+# Bağımlılıklar ve derleme çıktısı
+node_modules/
+build/
+.react-router/
+
+# Ortam değişkenleri ve sunucu sırları
+.env
+.env.*
+!.env.example
+hanedan-config.php
+
+# Test çıktıları
+.playwright-cli/
+storage-state*.json
+playwright-report/
+test-results/
+coverage/
+
+# Fotoğrafların sıkıştırılmamış orijinalleri (yayına çıkan sürümler public/img altında)
+gorsel-kaynak/
+
+# Günlükler ve geçici dosyalar
+*.log
+npm-debug.log*
+*.tmp
+.ekran-tmp*
+.dene*
+
+# İşletim sistemi ve editör dosyaları
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Claude Code
+.claude/
+CLAUDE.md

@@ -1,0 +1,24 @@
+.kolon{display:grid;gap:32px;align-content:start;min-width:0}
+.liste{display:grid;gap:12px}
+.satir{display:grid;grid-template-columns:52px minmax(0,1fr);column-gap:16px;row-gap:4px;align-items:center;padding:16px 18px;background:var(--emaye);border:2px solid var(--kara);border-radius:var(--r-plaka);box-shadow:0 4px 0 var(--kara)}
+.rozet{grid-row:1 / span 2;align-self:start;display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--sari);border:2px solid var(--kara);color:var(--kara)}
+.rozetWa{background:var(--wa);color:#fff}
+.rozetInsta{background:linear-gradient(45deg,#F58529,#DD2A7B 55%,#8134AF);color:#fff}
+.glif{width:24px;height:24px}
+.satir dt{grid-column:2;font:700 12px/1.2 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ikincil)}
+.satir dd{grid-column:2;display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;min-width:0;font:500 17px/1.5 var(--sans)}
+.telefon{display:inline-flex;align-items:center;min-height:44px;font:750 clamp(26px,2.6vw,34px)/1 var(--slab);letter-spacing:.02em;white-space:nowrap}
+a.telefon:hover{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:5px}
+.waDugme{min-height:44px}
+.deger{display:inline-flex;align-items:center;min-height:44px;font-weight:600;overflow-wrap:anywhere}
+a.deger:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.adres{flex-basis:100%;font-style:normal;padding-top:4px}
+.tarif{display:inline-flex;align-items:center;gap:8px;min-height:44px;font:750 15px/1 var(--slab);letter-spacing:.06em;text-transform:uppercase;border-bottom:2px solid var(--kara)}
+.tarif:hover{background:var(--sari)}
+.tarifIkon{width:18px;height:18px}
+
+@media (max-width:479px){
+  .satir{grid-template-columns:44px minmax(0,1fr);column-gap:12px;padding:14px}
+  .rozet{width:44px;height:44px}
+  .glif{width:20px;height:20px}
+}

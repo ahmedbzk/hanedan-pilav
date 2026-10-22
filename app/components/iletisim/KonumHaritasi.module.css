@@ -1,0 +1,12 @@
+.kutu{display:grid;gap:14px}
+.baslik{display:flex;align-items:center;gap:10px;font:750 clamp(22px,2vw,26px)/1.1 var(--slab)}
+.baslikIkon{width:24px;height:24px}
+.cerceve{position:relative;aspect-ratio:4 / 3;border:2px solid var(--kara);border-radius:var(--r-plaka);overflow:hidden;box-shadow:0 4px 0 var(--kara);background:var(--kara)}
+.cerceve iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.onizleme{position:absolute;inset:0;display:grid;align-content:end;justify-content:center;justify-items:center;gap:12px;padding:24px 24px 26px;text-align:center;color:var(--emaye);background:linear-gradient(180deg,rgba(21,21,21,0) 30%,rgba(21,21,21,.9) 78%),url("/img/galeri/hanedan-pilav-aksam-cephe.jpg") center 40% / cover no-repeat}
+.ilce{font:750 clamp(24px,2.4vw,30px)/1.1 var(--slab);letter-spacing:.01em}
+.dugme{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;background:var(--sari);color:var(--kara);border:2px solid var(--kara);border-radius:var(--r-dugme);box-shadow:0 3px 0 var(--kara);font:750 15px/1 var(--slab);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.dugme:hover{background:var(--sari-acik)}
+.dugme:focus-visible{outline:3px solid var(--emaye);outline-offset:3px}
+.dugmeIkon{width:20px;height:20px}
+.not{max-width:30em;font-size:13px;line-height:1.5;color:var(--soluk)}
