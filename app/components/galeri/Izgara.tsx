@@ -76,8 +76,9 @@ export function Izgara() {
         </div>
       ) : (
         <ul className={s.izgara} data-galeri-izgara>
-          {gorunen.map((o) => {
-            const gorsel = <Gorsel oran={o.oran} konu={o[dil].konu} cekim={o.tr} src={o.src} alt={o.alt?.[dil]} sizes="(min-width: 900px) 33vw, (min-width: 540px) 50vw, 100vw" />;
+          {gorunen.map((o, sira) => {
+            // İlk kare ekranın üst kısmında, LCP adayı: tembel yüklenmez.
+            const gorsel = <Gorsel oran={o.oran} konu={o[dil].konu} cekim={o.tr} src={o.src} alt={o.alt?.[dil]} oncelikli={sira === 0} sizes="(min-width: 900px) 33vw, (min-width: 540px) 50vw, 100vw" />;
             const i = kutuOgeleri.findIndex((k) => k.id === o.id);
             return (
               <li key={o.id} className={s.oge} data-yer-tutucu={o.src ? undefined : ""}>

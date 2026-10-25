@@ -17,6 +17,18 @@ type Fotografli = { readonly src: string; readonly alt: { readonly tr: string; r
 
 export type GaleriOgesi = Temel & (Yerturucu | Fotografli);
 
+// Her JPEG'in yanında bu genişliklerde WebP kopyası durur (npm run gorsel:webp). JPEG; OG, JSON-LD ve sitemap içindir.
+export const WEBP_GENISLIKLERI = [480, 800, 1200] as const;
+
+export function webpYolu(src: string, genislik: number): string {
+  return src.replace(/\.jpe?g$/i, `-${genislik}.webp`);
+}
+
+export function webpSrcSet(src: string): string | undefined {
+  if (!/\.jpe?g$/i.test(src)) return undefined;
+  return WEBP_GENISLIKLERI.map((g) => `${webpYolu(src, g)} ${g}w`).join(", ");
+}
+
 export const GALERI: readonly GaleriOgesi[] = [
   {
     id: "uretim-mutfagi",

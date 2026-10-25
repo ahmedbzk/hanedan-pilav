@@ -21,7 +21,8 @@ import s from "./BayiBulucu.module.css";
 const YAKALAR: readonly Yaka[] = ["avrupa", "anadolu"];
 const ILCE_SLUGLARI = new Set(ILCELER.map((i) => i.slug));
 const HIZMET_ILCELERI: ReadonlySet<string> = new Set(SITE.hizmetBolgeleri.flatMap((b) => (b.ilce ? [b.ilce] : [])));
-const KONUMLU_BAYI_VAR = BAYILER.some((b) => b.konum !== undefined);
+// Yakınlığa göre sıralama en az iki konumlu bayiyle anlamlı; tekken düğme boşuna konum izni ister.
+const KONUMLU_BAYI_VAR = BAYILER.filter((b) => b.konum !== undefined).length > 1;
 const SUBE_VAR = BAYILER.some((b) => b.tur === "sube");
 const ILCE_PARAMETRESI: Readonly<Record<Dil, string>> = { tr: "ilce", en: "district" };
 

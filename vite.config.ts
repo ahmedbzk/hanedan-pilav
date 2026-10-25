@@ -2,8 +2,10 @@ import { fileURLToPath } from "node:url";
 import { reactRouter } from "@react-router/dev/vite";
 import { defineConfig } from "vite";
 
-export default defineConfig({
+export default defineConfig(({ command, isSsrBuild }) => ({
   plugins: [reactRouter()],
+  // Tarayıcı paketinde console ve debugger çağrıları kaldırılır; prerender (SSR) derlemesi hataları göstermeye devam eder.
+  esbuild: command === "build" && !isSsrBuild ? { drop: ["console", "debugger"] } : undefined,
   resolve: {
     alias: { "~": fileURLToPath(new URL("./app", import.meta.url)) },
   },
@@ -17,4 +19,4 @@ export default defineConfig({
   },
   server: { port: 8780, strictPort: true },
   preview: { port: 8782, strictPort: true },
-});
+}));

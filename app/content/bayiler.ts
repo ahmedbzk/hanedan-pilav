@@ -26,6 +26,8 @@ export const BAYILER: readonly Bayi[] = [
       il: "İstanbul",
     },
     telefon: { e164: "+905336163754", gorunen: "+90 533 616 37 54" },
+    // Google Haritalar yer kaydından (GOOGLE_HARITA ile aynı nokta).
+    konum: { lat: 41.0942873, lng: 28.8932846 },
   },
 ];
 

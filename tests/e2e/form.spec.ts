@@ -280,9 +280,12 @@ test.describe("iletişim formu: gönderim (fetch taklidi)", () => {
 
   test("gönderilirken ikinci tıklama tek istek üretir", async ({ page }) => {
     let adet = 0;
+    // Yanıt, ikinci tıklama yapılana kadar bekletilir; sabit gecikme yavaş makinede tıklamadan önce bitebiliyordu.
+    let birak!: () => void;
+    const tiklandi = new Promise<void>((r) => (birak = r));
     await page.route("**/api/form.php", async (rota) => {
       adet++;
-      await new Promise((r) => setTimeout(r, 400));
+      await tiklandi;
       await rota.fulfill({ status: 200, contentType: "application/json", body: '{"ok":true}' });
     });
     await formHazir(page, TR);
@@ -292,6 +295,7 @@ test.describe("iletişim formu: gönderim (fetch taklidi)", () => {
     await expect(page.getByRole("button", { name: "Gönderiliyor" })).toHaveAttribute("aria-disabled", "true");
     // aria-disabled düğme Playwright'ta "etkin değil" sayılır; kullanıcı gibi zorla tıklanır.
     await page.getByRole("button", { name: "Gönderiliyor" }).click({ force: true });
+    birak();
     await expect(page.getByRole("status").filter({ hasText: "Mesajınız bize ulaştı." })).toBeVisible();
     expect(adet).toBe(1);
   });

@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import type { Oran } from "~/content/galeri.ts";
+import { type Oran, webpSrcSet } from "~/content/galeri.ts";
 import { cx } from "~/lib/cx.ts";
 import s from "./Gorsel.module.css";
 
@@ -30,6 +30,7 @@ export function Gorsel({ oran, konu, cekim, src, alt, genislik = 1200, oncelikli
       <div className={cx(s.foto, className)} style={stil}>
         <img
           src={src}
+          srcSet={webpSrcSet(src)}
           alt={alt ?? konu}
           width={genislik}
           height={Math.round((genislik * oy) / og)}

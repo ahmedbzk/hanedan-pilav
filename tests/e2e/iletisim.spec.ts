@@ -67,8 +67,8 @@ for (const sayfa of SAYFALAR) {
       await expect(cerceve).toHaveCount(1);
       const src = new URL((await cerceve.getAttribute("src")) ?? "");
       expect(src.origin).toBe("https://www.google.com");
-      expect(src.searchParams.get("output")).toBe("embed");
-      expect(src.searchParams.get("q")).toContain(SITE.adres.cadde);
+      expect(src.pathname).toBe("/maps/embed");
+      expect(src.searchParams.get("pb")).toContain(SITE.adres.cadde);
     });
 
     test("form var ve konu önseçimi çalışır", async ({ page }) => {

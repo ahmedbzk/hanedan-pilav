@@ -99,7 +99,7 @@ for (const d of DILLER) {
       await page.goto(d.yol);
       await hidrasyon(page);
       expect(BAYILER.some((b) => b.tur === "sube")).toBe(false);
-      expect(BAYILER.some((b) => b.konum)).toBe(false);
+      expect(BAYILER.filter((b) => b.konum).length).toBeLessThan(2);
       await expect(page.getByText(/^\d+ (bayi|locations?)$/)).toHaveCount(0);
       await expect(page.getByRole("button", { name: d.konum })).toHaveCount(0);
     });
