@@ -39,7 +39,7 @@ Türkçe metinde "bayi" yerine "şube" kullanılır.
 
 ## Yayın
 
-Barındırma isimtescil.net (Plesk). `npm run yayin` siteyi production için derler, `check:yayin` kapısından geçirir ve `build/client` içeriğini FTPS ile web köküne (`httpdocs`) yükler. FTP bilgileri `.env.yayin` dosyasında durur ve repoya girmez. GitHub Actions yalnız testleri çalıştırır, yükleme yapmaz.
+Barındırma isimtescil.net (Plesk). `npm run yayin` siteyi production için derler, `check:yayin` kapısından geçirir ve `build/client` içeriğini FTP ile web köküne (`httpdocs`) yükler. FTP bilgileri `.env.yayin` dosyasında durur ve repoya girmez (`FTP_SUNUCU`, `FTP_KULLANICI`, `FTP_SIFRE`, `FTP_DIZIN`). Paket FTPS sunmadığı için `FTP_SIFRESIZ=evet` gerekir; şifre ağda düz metin gittiğinden yükleme yalnız güvenilen ağdan yapılır. Yükleme sonunda dizin izinleri 755, dosya izinleri 644 yapılır. GitHub Actions yalnız testleri çalıştırır, yükleme yapmaz.
 
 Sunucudaki e-posta ayarları `hanedan-config.php` dosyasında tutulur ve repoya girmez. Bu dosya Plesk Dosya Yöneticisi ile `httpdocs`'un bir üst dizinine elle konur; FTP hesabı yalnız `httpdocs`'u gördüğü için `npm run yayin` onu yüklemez.
 
