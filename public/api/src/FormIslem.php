@@ -583,8 +583,12 @@ final class FormIslem
         }
         $m->addReplyTo((string) $posta['yanit'], (string) $posta['yanit_ad']);
         $m->Subject = (string) $posta['konu'];
-        $m->isHTML(false);
-        $m->Body = (string) $posta['govde'];
+        // Bazı web postası istemcileri düz metindeki satır sonlarını göstermiyor: HTML gövde (kaçışlı) + düz metin alternatif.
+        $duz = (string) $posta['govde'];
+        $m->isHTML(true);
+        $m->Body = '<div style="font-family:Arial,sans-serif;font-size:14px;line-height:1.6">'
+            . nl2br(htmlspecialchars($duz, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'), false) . '</div>';
+        $m->AltBody = $duz;
         try {
             return $m->send();
         } catch (Throwable $e) {
