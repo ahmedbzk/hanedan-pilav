@@ -45,7 +45,8 @@ echo "== Yönlendirmeler ($TABAN, ortam: $ORTAM)"
 if [[ "$TABAN" == https://* ]]; then
   d="$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 ${KIMLIK[@]+"${KIMLIK[@]}"} "http://$HOST/kurumsal")"
   k="$(curl -s -I --max-time 20 ${KIMLIK[@]+"${KIMLIK[@]}"} "http://$HOST/kurumsal" | tr -d '\r' | awk 'tolower($1)=="location:" {print $2; exit}')"
-  if [[ "$d" == "301" && "$k" == https://* ]]; then ok "http -> https (301 -> $k)"; else hata "http -> https: gelen $d ${k:-konum yok}"; fi
+  # Bu yönlendirmeyi isimtescil'in önündeki vekil yapar ve 302 döner; .htaccess'te HTTPS kuralı yoktur (döngü yaratır).
+  if [[ ("$d" == "301" || "$d" == "302") && "$k" == https://* ]]; then ok "http -> https ($d -> $k)"; else hata "http -> https: gelen $d ${k:-konum yok}"; fi
 fi
 if [[ "$ORTAM" == "production" && "$HOST" == www.hanedanpilav.com ]]; then
   k="$(curl -s -I --max-time 20 "https://hanedanpilav.com/kurumsal" | tr -d '\r' | awk 'tolower($1)=="location:" {print $2; exit}')"

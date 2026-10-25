@@ -585,7 +585,17 @@ final class FormIslem
         $m->Subject = (string) $posta['konu'];
         $m->isHTML(false);
         $m->Body = (string) $posta['govde'];
-        return $m->send();
+        try {
+            return $m->send();
+        } catch (Throwable $e) {
+            // Sunucu cevabı (bağlantı, TLS, kimlik doğrulama) teşhis için günlüğe gider; adresler maskelenir.
+            $smtpHata = $m->getSMTPInstance()->getError();
+            $ozet = implode(' | ', array_filter(array_map('strval', [$e->getMessage(), $smtpHata['error'], $smtpHata['smtp_code'], $smtpHata['detail']]), 'strlen'));
+            $ozet = preg_replace('/[^\s<>@]+@[^\s<>@]+/u', '<adres>', $ozet) ?? '';
+            $ozet = preg_replace('/[\x00-\x1F\x7F]+/', ' ', $ozet) ?? '';
+            error_log('hanedan-form: smtp ' . mb_substr($ozet, 0, 400));
+            throw $e;
+        }
     }
 
     /**
