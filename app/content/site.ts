@@ -28,7 +28,7 @@ export const SITE = {
     acilis: "09:00",
     kapanis: "17:00",
   },
-  eposta: "info.hanedanpilav@gmail.com" as string | null,
+  eposta: "info@hanedanpilav.com" as string | null,
   sosyal: [{ ad: "Instagram", url: "https://www.instagram.com/hanedanpilavresmi/" }] as readonly SosyalHesap[],
   instagramKullanici: "hanedanpilavresmi",
   hizmetBolgeleri: [
