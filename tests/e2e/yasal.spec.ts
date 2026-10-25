@@ -124,6 +124,8 @@ test.describe("yatay taşma", () => {
 
 // Çerez politikasının iddiaları gerçek tarayıcıda denetlenir: listede olmayan çerez, depolama anahtarı veya dış istek varsa kalır.
 test("çerez politikası envanteri gerçek davranışla aynı", async ({ page, context, baseURL }) => {
+  // Tüm yolları (18 sayfa) networkidle ile gezer; paralel koşuda varsayılan 30 sn yetmeyebilir.
+  test.slow();
   const kok = new URL(baseURL ?? "http://127.0.0.1").origin;
   const disIstekler: string[] = [];
   page.on("request", (r) => {

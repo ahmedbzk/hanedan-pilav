@@ -6,7 +6,6 @@ build/
 # Ortam değişkenleri ve sunucu sırları
 .env
 .env.*
-!.env.example
 hanedan-config.php
 
 # Test çıktıları

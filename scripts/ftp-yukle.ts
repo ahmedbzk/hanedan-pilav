@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 import { Client } from "basic-ftp";
 
 // build/client içeriğini FTPS ile web köküne yükler. Bilgiler repoya girmeyen .env.yayin dosyasından okunur
-// (örnek: .env.example). Önce `npm run build` ve `npm run check:yayin` koşmuş olmalıdır; `npm run yayin` üçünü sırayla yapar.
+// (FTP_SUNUCU, FTP_KULLANICI, FTP_SIFRE, FTP_DIZIN). Önce `npm run build` ve `npm run check:yayin` koşmuş olmalıdır; `npm run yayin` üçünü sırayla yapar.
 
 const kok = resolve(process.argv[2] ?? "build/client");
 const envDosyasi = resolve(".env.yayin");
@@ -11,7 +11,7 @@ const envDosyasi = resolve(".env.yayin");
 try {
   process.loadEnvFile(envDosyasi);
 } catch {
-  console.error(`${envDosyasi} okunamadı; .env.example dosyasını .env.yayin adıyla kopyalayıp doldurun.`);
+  console.error(`${envDosyasi} okunamadı; FTP_SUNUCU, FTP_KULLANICI, FTP_SIFRE ve FTP_DIZIN satırlarıyla oluşturun.`);
   process.exit(1);
 }
 
