@@ -19,6 +19,8 @@
 .iletisim li>span{display:inline-flex;align-items:center;min-height:44px}
 .alt a:not([data-dil]):hover{color:var(--emaye);text-decoration:underline;text-underline-offset:3px}
 .iletisim li+li{margin-top:2px}
+.iletisim a{gap:10px}
+.ikon{width:18px;height:18px;flex:none;color:var(--sari)}
 .son{grid-column:1 / -1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px;border-top:1px solid rgba(251,247,236,.14);padding-top:24px;font-size:14px}
 .son-sag{display:flex;align-items:center;flex-wrap:wrap;gap:16px 24px}
 .yasal{display:flex;flex-wrap:wrap;gap:0 24px}

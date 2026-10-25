@@ -41,7 +41,7 @@ export const tr = {
     kvkk: "KVKK Aydınlatma Metni",
     cerez: "Çerez Politikası",
     yasal: "Yasal",
-    telif: (yil: number) => `© ${KURULUS_YILI}-${yil} Hanedan Pilav`,
+    telif: (yil: number) => `© ${KURULUS_YILI}-${yil} Hanedan Pilav. Tüm hakları saklıdır.`,
   },
   sayfalar: {
     kvkk: {

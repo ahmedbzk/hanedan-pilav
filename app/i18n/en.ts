@@ -48,7 +48,7 @@ export const en: Sozluk = {
     kvkk: "Privacy Notice (KVKK)",
     cerez: "Cookie Policy",
     yasal: "Legal",
-    telif: (yil) => `© ${KURULUS_YILI}-${yil} Hanedan Pilav`,
+    telif: (yil) => `© ${KURULUS_YILI}-${yil} Hanedan Pilav. All rights reserved.`,
   },
   sayfalar: {
     kvkk: {

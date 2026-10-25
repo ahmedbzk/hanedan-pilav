@@ -1,4 +1,7 @@
 import { ArrowUpRightIcon } from "@phosphor-icons/react/ArrowUpRight";
+import { EnvelopeSimpleIcon } from "@phosphor-icons/react/EnvelopeSimple";
+import { InstagramLogoIcon } from "@phosphor-icons/react/InstagramLogo";
+import { PhoneIcon } from "@phosphor-icons/react/Phone";
 import { Link } from "react-router";
 import { SITE, adresSatirlari } from "~/content/site.ts";
 import { usePaths, useT } from "~/i18n/index.ts";
@@ -10,6 +13,7 @@ import { Ikon } from "./Ikon.tsx";
 import { LangSwitch } from "./LangSwitch.tsx";
 import { Logo } from "./Logo.tsx";
 import { NAV_ANAHTARLARI } from "./nav.ts";
+import { WhatsAppGlyph } from "./WhatsApp.tsx";
 
 export function Footer() {
   const t = useT();
@@ -62,11 +66,13 @@ export function Footer() {
           <ul>
             <li>
               <a className="nw" href={TEL_HREF}>
+                <Ikon ikon={PhoneIcon} className={s.ikon} />
                 {SITE.telefon.gorunen}
               </a>
             </li>
             <li>
               <a href={waHref(t)} target="_blank" rel="noopener noreferrer">
+                <WhatsAppGlyph className={s.ikon} />
                 <span>{t.wa.etiket}</span>
                 <span className="sr">{t.genel.yeniSekme}</span>
               </a>
@@ -74,6 +80,7 @@ export function Footer() {
             {SITE.eposta ? (
               <li>
                 <a className="nw" href={`mailto:${SITE.eposta}`}>
+                  <Ikon ikon={EnvelopeSimpleIcon} className={s.ikon} />
                   {SITE.eposta}
                 </a>
               </li>
@@ -81,6 +88,7 @@ export function Footer() {
             {SITE.sosyal.map((hesap) => (
               <li key={hesap.ad}>
                 <a href={hesap.url} target="_blank" rel="noopener noreferrer">
+                  <Ikon ikon={InstagramLogoIcon} className={s.ikon} />
                   {hesap.ad}: @{SITE.instagramKullanici}
                   <span className="sr"> {t.genel.yeniSekme}</span>
                 </a>

@@ -1,0 +1,22 @@
+name: IP özeti temizliği
+
+# Barındırma paketinde Plesk zamanlanmış görevi yok. Form betiğine gelen her istek süresi dolan hız sınırı
+# özetlerini siler; bu iş trafik olmasa da yaklaşık 10 dakikada bir istek atar (GET 405 döner, beklenen).
+# GitHub zamanlanmış işleri gecikmeli çalıştırabilir ve repo 60 gün hareketsiz kalırsa durdurur.
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  temizle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Form betiğine istek
+        run: |
+          kod="$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 https://www.hanedanpilav.com/api/form.php)"
+          echo "yanıt: $kod"
+          [ "$kod" = "405" ]

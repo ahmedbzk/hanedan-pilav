@@ -43,4 +43,4 @@ Barındırma isimtescil.net (Plesk). `npm run yayin` siteyi production için der
 
 Sunucudaki e-posta ayarları `hanedan-config.php` dosyasında tutulur ve repoya girmez. Bu dosya Plesk Dosya Yöneticisi ile `httpdocs`'un bir üst dizinine elle konur; FTP hesabı yalnız `httpdocs`'u gördüğü için `npm run yayin` onu yüklemez.
 
-Canlıya çıkmadan önce bir kez yapılır: Plesk > Zamanlanmış Görevler'de 10 dakikada bir `curl -fsS -o /dev/null --max-time 20 https://www.hanedanpilav.com/api/form.php || true` çalıştırılır (form hız sınırı özetlerini siler), ardından `app/content/site.ts` içinde `ipTemizlikGorevi.kuruldu` `true` yapılır. Yayından sonra `scripts/yayin-kontrol.sh https://www.hanedanpilav.com production` ile duman testi yapılır.
+Form hız sınırı özetlerini trafik olmasa da silmek için `.github/workflows/temizlik.yml` yaklaşık 10 dakikada bir `/api/form.php` adresine istek atar (barındırma paketinde Plesk zamanlanmış görevi yok); `app/content/site.ts` içindeki `ipTemizlikGorevi.kuruldu` bu yüzden `true`dur. Yayından sonra `scripts/yayin-kontrol.sh https://www.hanedanpilav.com production` ile duman testi yapılır.
