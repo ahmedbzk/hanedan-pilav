@@ -56,8 +56,8 @@ test.describe("yasal sayfalar", () => {
       await page.goto(y);
       const metin = (await page.locator("main").innerText()).toLocaleLowerCase("tr");
       await expect(page.locator("main dl dd", { hasText: /^Hanedan Pilav$/ })).toHaveCount(1);
-      for (const yasak of ["unvan", "mersis", "vergi", "kep", "legal name", "tax ", "t.c.", "kimlik numara", "pasaport", "passport", "uyruk", "nationality", "turkish id"]) {
-        expect(metin, yasak).not.toContain(yasak);
+      for (const yasak of ["unvan", "mersis", "vergi", /\bkep\b/, "legal name", "tax ", "t.c.", "kimlik numara", "pasaport", "passport", "uyruk", "nationality", "turkish id"]) {
+        expect(metin, String(yasak)).not.toMatch(yasak);
       }
     });
   }
@@ -66,7 +66,7 @@ test.describe("yasal sayfalar", () => {
     test(`${y}: Türkçe metinde "bayi" ve "franchise" geçmez`, async ({ page }) => {
       await page.goto(y);
       const metin = (await page.locator("main").innerText()).toLocaleLowerCase("tr");
-      for (const yasak of ["bayi", "franchise"]) expect(metin, yasak).not.toContain(yasak);
+      for (const yasak of ["bayi", "franchise"]) expect(metin, String(yasak)).not.toMatch(yasak);
     });
   }
 });

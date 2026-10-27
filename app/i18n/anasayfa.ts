@@ -4,12 +4,12 @@ import { KURULUS_YILI, kapasiteEn, kapasiteTr, yilEki } from "./olgular.ts";
 
 const tr = {
   meta: {
-    baslik: `Tavuklu nohutlu pilav, ${yilEki(KURULUS_YILI, "den")} beri · Hanedan Pilav`,
+    baslik: `Hanedan Pilav · Tavuklu nohutlu pilav, ${yilEki(KURULUS_YILI, "den")} beri`,
     aciklama:
       `Hanedan Pilav ${yilEki(KURULUS_YILI, "den")} beri İstanbul’da tavuklu nohutlu pilav pişiriyor. Günlük ${kapasiteTr(" ")} üretim kapasitesi, şubelerimiz, şube açma ve toplu yemek hizmeti.`,
   },
   acilis: {
-    baslikBas: `${yilEki(KURULUS_YILI, "den")} beri`,
+    baslikBas: `Tavuklu nohutlu pilavda ${yilEki(KURULUS_YILI, "den")} beri`,
     baslikSon: "değişmeyen lezzet.",
     giris:
       `Şubede tabak tabak, organizasyonda kazan kazan. Günlük ${kapasiteTr()} üretim kapasitesiyle şubelerimize ve kurumsal firmalara hizmet veriyoruz.`,
@@ -77,12 +77,12 @@ export type AnasayfaSozluk = typeof tr;
 
 const en: AnasayfaSozluk = {
   meta: {
-    baslik: `Chicken and chickpea pilaf since ${KURULUS_YILI} · Hanedan Pilav`,
+    baslik: `Hanedan Pilav · Chicken and chickpea pilaf since ${KURULUS_YILI}`,
     aciklama:
       `Hanedan Pilav has cooked Turkish chicken and chickpea pilaf in Istanbul since ${KURULUS_YILI}. Locations across the city, franchise opportunities, and catering.`,
   },
   acilis: {
-    baslikBas: "Made the same way",
+    baslikBas: "Chicken and chickpea pilaf, made the same way",
     baslikSon: `since ${KURULUS_YILI}.`,
     giris: `By the plate or by the pot: ${kapasiteEn()} of daily capacity, serving our franchisees and corporate clients.`,
     teklif: "Get a Catering Quote",

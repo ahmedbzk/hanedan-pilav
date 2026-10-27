@@ -5,7 +5,7 @@ import { WA_PARCASI, yatayTasma } from "./yardimci.ts";
 const SAYFALAR = [
   {
     yol: "/",
-    baslik: /^Tavuklu nohutlu pilav, 1998’den beri · Hanedan Pilav$/,
+    baslik: /^Hanedan Pilav · Tavuklu nohutlu pilav, 1998’den beri$/,
     aciklama: /Günlük 1 ton üretim kapasitesi/,
     bayilik: { ad: "Şube Başvurusu", yol: "/bayilerimiz#bayimiz-olun" },
     teklif: { ad: "Toplu Yemek Teklifi", yol: "/iletisim?konu=catering" },
@@ -18,7 +18,7 @@ const SAYFALAR = [
   },
   {
     yol: "/en",
-    baslik: /^Chicken and chickpea pilaf since 1998 · Hanedan Pilav$/,
+    baslik: /^Hanedan Pilav · Chicken and chickpea pilaf since 1998$/,
     aciklama: /chicken and chickpea pilaf in Istanbul since 1998/,
     bayilik: { ad: "Become a Franchisee", yol: "/en/locations#become-a-franchisee" },
     teklif: { ad: "Get a Catering Quote", yol: "/en/contact?topic=catering" },
