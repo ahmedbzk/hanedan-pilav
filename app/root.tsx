@@ -15,6 +15,7 @@ import { RotaOdak } from "./components/RotaOdak.tsx";
 import { SkipLink } from "./components/SkipLink.tsx";
 import { WhatsAppFab } from "./components/WhatsAppFab.tsx";
 import { useLang, useT } from "./i18n/index.ts";
+import { SITE } from "./content/site.ts";
 import { jsonLdMetni, kokJsonLd } from "./lib/jsonld.ts";
 
 export const links: Route.LinksFunction = () => [
@@ -37,6 +38,7 @@ export function Layout({ children }: { children: ReactNode }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="theme-color" content="#F4C20D" />
+        <meta name="google-site-verification" content={SITE.googleDogrulama} />
         <script dangerouslySetInnerHTML={{ __html: JS_ISARETI }} />
         <Meta />
         <Links />

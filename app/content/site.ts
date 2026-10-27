@@ -3,6 +3,8 @@ export type SosyalHesap = { readonly ad: string; readonly url: string };
 export const SITE = {
   marka: "Hanedan Pilav",
   alanAdi: "https://www.hanedanpilav.com",
+  // Google Search Console HTML etiketi doğrulaması; etiket kalkarsa sahiplik düşer.
+  googleDogrulama: "D3reYWmE2JXgTKDwPRFcpePw445vPNmxJtQfV7nF-_4",
   kurulusYili: 1998,
   uretimKapasitesi: { miktar: 1, birim: "ton", periyot: "gunluk" },
   telefon: {

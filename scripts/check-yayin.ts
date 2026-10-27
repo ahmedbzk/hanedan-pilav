@@ -28,6 +28,10 @@ else {
   if (!/Content-Security-Policy "[^"]*'sha256-/.test(htaccess)) hatalar.push(".htaccess içinde hash'li CSP yok (postbuild çalışmadı).");
   if (/X-Robots-Tag/.test(htaccess.replace(/^\s*#.*$/gm, ""))) hatalar.push(".htaccess staging noindex başlığı içeriyor.");
 }
+const anasayfa = await oku("index.html");
+if (anasayfa === null) hatalar.push("build/client/index.html yok.");
+else if (!anasayfa.includes(`<meta name="google-site-verification" content="${SITE.googleDogrulama}"/>`))
+  hatalar.push("Ana sayfada Google Search Console doğrulama etiketi yok.");
 if ((await oku("sitemap.xml")) === null) hatalar.push("build/client/sitemap.xml yok.");
 
 if (hatalar.length > 0) {
