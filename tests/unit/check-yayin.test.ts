@@ -1,11 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { epostaHatasi, ipGorevHatasi } from "../../scripts/yayin-kapi.ts";
-
-test("IP özeti temizlik görevi kapısı her iki bayrak değerinde doğru karar verir", () => {
-  assert.match(ipGorevHatasi(false) ?? "", /Plesk zamanlanmış IP özeti temizlik görevi kurulmadı/);
-  assert.equal(ipGorevHatasi(true), null);
-});
+import { epostaHatasi } from "../../scripts/yayin-kapi.ts";
 
 test("kurumsal e-posta yoksa veya boşsa kapı hata verir", () => {
   for (const e of [null, "", "   "]) assert.match(epostaHatasi(e) ?? "", /Kurumsal e-posta yok/, JSON.stringify(e));

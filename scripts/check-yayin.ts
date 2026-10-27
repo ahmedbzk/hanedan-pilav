@@ -1,13 +1,14 @@
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { SITE } from "../app/content/site.ts";
-import { epostaHatasi, ipGorevHatasi } from "./yayin-kapi.ts";
+import { epostaHatasi } from "./yayin-kapi.ts";
 
 const kok = resolve(process.argv[2] ?? "build/client");
 const hatalar: string[] = [];
 
 if (!SITE.whatsapp.dogrulandi) hatalar.push(`WhatsApp numarası (${SITE.whatsapp.numara}) doğrulanmadı (site.ts whatsapp.dogrulandi).`);
-for (const h of [ipGorevHatasi(SITE.ipTemizlikGorevi.kuruldu), epostaHatasi(SITE.eposta)]) if (h) hatalar.push(h);
+const epostaSorunu = epostaHatasi(SITE.eposta);
+if (epostaSorunu) hatalar.push(epostaSorunu);
 
 async function oku(ad: string): Promise<string | null> {
   try {

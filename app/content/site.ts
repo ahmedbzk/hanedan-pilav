@@ -14,7 +14,6 @@ export const SITE = {
     gorunen: "+90 540 644 02 02",
     dogrulandi: true,
   },
-  ipTemizlikGorevi: { kuruldu: true },
   adres: {
     mahalle: "Yunus Emre Mah.",
     cadde: "Adem Yavuz Cd.",
@@ -44,10 +43,9 @@ export const SITE = {
     { ad: "Bahçelievler", ilce: "bahcelievler" },
   ] as readonly { readonly ad: string; readonly ilce: string | null }[],
   yasal: {
-    // pencere_sn (hanedan-config.php) değişirse bu metin de güncellenir.
     ipSuresi: {
-      tr: "Özet yalnız geçerli bir form gönderiminde oluşturulur ve son geçerli gönderimden 10 dakika sonra süresi dolar. Süresi dolan özet, form betiğine gelen ilk istekte ya da yaklaşık 10 dakikada bir çalışan otomatik temizlik göreviyle silinir.",
-      en: "The hash is created only when a valid form submission is made and expires 10 minutes after the most recent valid submission. An expired hash is deleted on the next request to the form script or by an automated cleanup task that runs about every 10 minutes.",
+      tr: "Özet yalnız spam ve kötüye kullanımı önlemek için kısa süreliğine tutulur, bu amaç sona erince silinir.",
+      en: "The hash is kept only briefly to prevent spam and abuse, and is deleted once that purpose has been served.",
     },
   },
 } as const;
